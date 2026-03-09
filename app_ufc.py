@@ -158,7 +158,7 @@ def get_base64(bin_file):
     return base64.b64encode(data).decode()
 
 ruta_linkedin = "Imagenes/linkedin.png"
-ruta_portafolio = "Imagenes/portafolio.png"
+ruta_portafolio = "Imagenes/portfolio.png"
 
 if os.path.exists(ruta_linkedin) and os.path.exists(ruta_portafolio):
     img_lk = get_base64(ruta_linkedin)
@@ -197,7 +197,7 @@ if modo_vista == "Cartelera Completa":
             c1, c2, c3 = st.columns([1, 3, 1])
             
             with c1:
-                ruta_img_A = f"imagenes/{mapa_imagenes[fA_name]}"
+                ruta_img_A = f"Imagenes/{mapa_imagenes[fA_name]}"
                 if os.path.exists(ruta_img_A): st.image(ruta_img_A, use_container_width=True)
                 st.markdown(f"<p style='text-align: center; font-weight: bold; margin-bottom: 0px;'>{fA_name}</p>", unsafe_allow_html=True)
                 st.markdown(f"<p class='probabilidad-under-name-small'>({pA_raw*100:.1f}% DE GANAR)</p>", unsafe_allow_html=True)
@@ -221,7 +221,7 @@ if modo_vista == "Cartelera Completa":
                     st.plotly_chart(graficar_striking(fA_name, fB_name, fA, fB), use_container_width=True)
 
             with c3:
-                ruta_img_B = f"imagenes/{mapa_imagenes[fB_name]}"
+                ruta_img_B = f"Imagenes/{mapa_imagenes[fB_name]}"
                 if os.path.exists(ruta_img_B): st.image(ruta_img_B, use_container_width=True)
                 st.markdown(f"<p style='text-align: center; font-weight: bold; margin-bottom: 0px;'>{fB_name}</p>", unsafe_allow_html=True)
                 st.markdown(f"<p class='probabilidad-under-name-small'>({pB_raw*100:.1f}% DE GANAR)</p>", unsafe_allow_html=True)
@@ -240,7 +240,7 @@ else:
     col1, col_vs, col2 = st.columns([1, 1.5, 1])
 
     with col1:
-        ruta_img_A = f"imagenes/{mapa_imagenes[fA_name]}"
+        ruta_img_A = f"Imagenes/{mapa_imagenes[fA_name]}"
         if os.path.exists(ruta_img_A): st.image(ruta_img_A, use_container_width=True)
         st.markdown(f"<h3 style='text-align: center;'>{fA_name}</h3>", unsafe_allow_html=True)
         st.markdown(f"<p class='probabilidad-under-name'>({pA_raw*100:.1f}% DE GANAR)</p>", unsafe_allow_html=True)
@@ -298,4 +298,3 @@ st.markdown("""
         </p>
     </div>
 """, unsafe_allow_html=True)
-
