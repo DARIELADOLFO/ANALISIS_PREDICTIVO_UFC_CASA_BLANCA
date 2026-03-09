@@ -157,8 +157,8 @@ def get_base64(bin_file):
         data = f.read()
     return base64.b64encode(data).decode()
 
-ruta_linkedin = "imagenes/linkedin.png"
-ruta_portafolio = "imagenes/portafolio.png"
+ruta_linkedin = "Imagenes/linkedin.png"
+ruta_portafolio = "Imagenes/portafolio.png"
 
 if os.path.exists(ruta_linkedin) and os.path.exists(ruta_portafolio):
     img_lk = get_base64(ruta_linkedin)
@@ -278,7 +278,7 @@ else:
 
 # PÓSTER OFICIAL AL FINAL
 # 
-ruta_poster = "imagenes/UFC_CASA BLANCA.JPG"
+ruta_poster = "Imagenes/UFC_CASA BLANCA.jpg"
 st.markdown("<br><h2 style='text-align: center;'>CARTELERA OFICIAL</h2>", unsafe_allow_html=True)
 if os.path.exists(ruta_poster):
     poster_col_1, poster_col_2, poster_col_3 = st.columns([1, 2, 1])
@@ -298,3 +298,4 @@ st.markdown("""
         </p>
     </div>
 """, unsafe_allow_html=True)
+
