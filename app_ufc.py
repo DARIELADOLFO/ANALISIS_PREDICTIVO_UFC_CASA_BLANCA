@@ -231,13 +231,14 @@ if modo_vista == "Cartelera Completa":
 
 # 
 # MODO 2: ANÁLISIS INDIVIDUAL PROFUNDO
-# 
+
 else:
     pelea_seleccionada = st.sidebar.selectbox("Filtra el Combate:", [f"{a} vs {b}" for a, b in cartelera])
     fA_name, fB_name = pelea_seleccionada.split(" vs ")
     ganador, p_win, p_ko, p_sub, p_dec, analisis, pA_raw, pB_raw, fA, fB = calcular_combate(fA_name, fB_name)
 
-    col1, col_vs, col2 = st.columns([1, 1.5, 1])
+    # 👇 Aquí cambiamos la proporción a [1, 2, 1] para que las imágenes laterales se vean más pequeñas y elegantes
+    col1, col_vs, col2 = st.columns([1, 2, 1])
 
     with col1:
         ruta_img_A = f"Imagenes/{mapa_imagenes[fA_name]}"
@@ -261,7 +262,8 @@ else:
         st.progress(int(p_dec * 100))
 
     with col2:
-        ruta_img_B = f"imagenes/{mapa_imagenes[fB_name]}"
+        # 👇 Aquí estaba el error. Ya tiene la "I" mayúscula en Imagenes/
+        ruta_img_B = f"Imagenes/{mapa_imagenes[fB_name]}"
         if os.path.exists(ruta_img_B): st.image(ruta_img_B, use_container_width=True)
         st.markdown(f"<h3 style='text-align: center;'>{fB_name}</h3>", unsafe_allow_html=True)
         st.markdown(f"<p class='probabilidad-under-name'>({pB_raw*100:.1f}% DE GANAR)</p>", unsafe_allow_html=True)
