@@ -158,7 +158,7 @@ def get_base64(bin_file):
     return base64.b64encode(data).decode()
 
 ruta_linkedin = "imagenes/linkedin.png"
-ruta_portafolio = "imagenes/portfolio.png"
+ruta_portafolio = "imagenes/portafolio.png"
 
 if os.path.exists(ruta_linkedin) and os.path.exists(ruta_portafolio):
     img_lk = get_base64(ruta_linkedin)
